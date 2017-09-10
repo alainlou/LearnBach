@@ -37,23 +37,29 @@ file = open("output.txt", "r")
 out = open("output.csv", "wb")
 temp = "0"
 
-values = file.readline().split(" ")
+values = file.readlines()
+t = []
+
+for e in values:
+    for i in e.split(" "):
+        t.append(i)
+
+values = t
 
 out.write(("0,0, Header,1,3,384,\n1,0, Start_track,,,,\n1,0, Time_signature,4,2,24,8\n1,0, Tempo,500000,,,\n1,"+ """length of the track""" + ", End_track,,,,\n").encode("utf-8"))
 out.write(("2,0, Start_track,,,,\n2,0, Text_t,\"\"\"harpsichord: John Sankey\"\"\"\,,,\n2,0, Title_t,\" \"\"Track 1\"\"\",,,").encode("utf-8"))
 
 for i in range(len(values)):
     if values[i] != temp:
-        print(values[i], i)
     #compute string distance/differences
         remove, add = diff(temp, values[i])
-        for e in add:
-            out.write(("2," + str(i-1) + ", Note_on_c,0," + str(ord(e)) + ",127,\n").encode("utf-8"))
-        for e in remove:
-            out.write(("2," + str(i-1) + ", Note_off_c,0," + str(ord(e)) + ",127,\n").encode("utf-8"))
+        for e in ''.join(set(add)):
+            out.write(("2," + str(i) + ", Note_on_c,0," + str(ord(e)) + ",127,\n").encode("utf-8"))
+        for e in ''.join(set(remove)):
+            out.write(("2," + str(i) + ", Note_off_c,0," + str(ord(e)) + ",127,\n").encode("utf-8"))
         temp = values[i]
 
-out.write(("2,181248, End_track,,,,\n3,0, Start_track,,,,\n3,0, Title_t,\" \"\"MIDI\"\"\",,,\n3,1536, End_track,,,,\n0,0, End_of_file,,,,").encode("utf-8"))
+out.write(("2,setEndValueHere, End_track,,,,\n3,0, Start_track,,,,\n3,0, Title_t,\" \"\"MIDI\"\"\",,,\n3,1536, End_track,,,,\n0,0, End_of_file,,,,").encode("utf-8"))
 
 out.close()
         
