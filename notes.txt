@@ -1,5 +1,0 @@
-each space is passage of time, more than 1 space means pause
-
-3 secs silence
-
-headers don't matter
