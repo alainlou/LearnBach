@@ -96,9 +96,9 @@ while True:
     txt = ''.join(ix_to_char[ix] for ix in sample_ix)
     print('----\n %s \n----' % (txt, ))
 
-  if n == 20000:
+  if n == 1000000:
     file = open("output.txt", "w")
-    sample_ix = sample(hprev, inputs[0], 20000)
+    sample_ix = sample(hprev, inputs[0], 500000)
     txt = ''.join(ix_to_char[ix] for ix in sample_ix)
     file.write(txt)
     file.close()
