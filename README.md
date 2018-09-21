@@ -2,6 +2,8 @@
 
 Hopefully this might make some good music.
 
+![Output examples can be found here](https://github.com/alainlou/LearnBach/tree/master/samples) (download the .mid file and play on Media Player if on Windows or somewhere else on Mac/Unix)
+
 About the Text Data:
 
 Each space is passage of time, more than 1 space means pause of that many time units - 1. There is a 3 second silence between each piece.
