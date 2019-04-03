@@ -2,7 +2,7 @@
 
 Hopefully this might make some good music.
 
-![Output examples can be found here](https://github.com/alainlou/LearnBach/tree/master/samples) (download the .mid file and play on Media Player if on Windows or somewhere else on Mac/Unix)
+[Output examples can be found here](https://github.com/alainlou/LearnBach/tree/master/samples) (download the .mid file and play on Media Player if on Windows or somewhere else on Mac/Unix)
 
 About the Text Data:
 
